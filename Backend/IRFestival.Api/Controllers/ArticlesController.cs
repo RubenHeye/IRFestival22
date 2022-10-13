@@ -43,7 +43,7 @@ namespace IRFestival.Api.Controllers
             return Ok(article);
         }
 
-        [HttpGet]
+        [HttpGet("getAll")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(Article))]
         public async Task<IActionResult> GetAsync()
         {
