@@ -25,8 +25,14 @@ namespace IRFestival.Api.Controllers
         {
             var festival = await _ctx.Festivals.FirstOrDefaultAsync();
             var schedule = await _ctx.Schedules.Where(x => x.FestivalId.Equals(festival.Id)).FirstOrDefaultAsync();
+            
             var scheduleItems = await _ctx.ScheduleItems.Where(x => x.ScheduleId.Equals(schedule.Id)).ToListAsync();
-            return Ok(scheduleItems);
+
+            foreach(var item in scheduleItems)
+            {
+                schedule.Items.Add(item);
+            }
+            return Ok(schedule);
         }
 
         [HttpGet("Artists")]
