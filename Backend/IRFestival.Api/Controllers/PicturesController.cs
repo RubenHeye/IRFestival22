@@ -32,12 +32,6 @@ namespace IRFestival.Api.Controllers
             return Ok(result);
         }
 
-        [HttpGet]
-        public string[] GetAllPictureUrls()
-        {
-            return Array.Empty<string>();
-        }
-
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(AppSettingsOptions))]
         public async Task<ActionResult> PostPicture(IFormFile file)
