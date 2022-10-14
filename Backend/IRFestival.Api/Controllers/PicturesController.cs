@@ -20,7 +20,7 @@ namespace IRFestival.Api.Controllers
             BlobUtility = blobUtility;
         }
 
-        [HttpGet("getUrls")]
+        [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(string[]))]
         public async Task<ActionResult> GetAllPicturesUrls()
         {
