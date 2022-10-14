@@ -25,7 +25,7 @@ namespace IRFestival.Function
                 i.Crop(new Rectangle(0, 0, 340, height < 226 ? height : 226));
             });
             input.Save(thumbnail, format);
-            log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {image.Length} Bytes");
+            log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {image.Length} Bytes!");
         }
     }
 }
