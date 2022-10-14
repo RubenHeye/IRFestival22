@@ -24,6 +24,7 @@ var storageSharedKeyCredential = new StorageSharedKeyCredential(
 
 var blobUri = "https://" + storageSharedKeyCredential.AccountName + ".blob.core.windows.net";
 
+if(!builder.Environment.IsDevelopment())
 builder.Configuration.AddAzureKeyVault(
     new Uri($"https://irfestivalkeyvaultrh.vault.azure.net/"),
     new DefaultAzureCredential(new DefaultAzureCredentialOptions()));
