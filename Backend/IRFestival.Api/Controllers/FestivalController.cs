@@ -33,8 +33,8 @@ namespace IRFestival.Api.Controllers
                                                         .ThenInclude(x => x.Stage)
                                                         .FirstOrDefaultAsync();
 
-            throw new ApplicationException("LineUp failed!");
-            //return Ok(lineUp);
+            // throw new ApplicationException("LineUp failed!");
+            return Ok(lineUp);
         }
 
         [HttpGet("Artists")]
