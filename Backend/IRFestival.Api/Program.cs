@@ -1,3 +1,4 @@
+using Azure.Identity;
 using Azure.Storage;
 using Azure.Storage.Blobs;
 using IRFestival.Api.Common;
@@ -22,6 +23,10 @@ var storageSharedKeyCredential = new StorageSharedKeyCredential(
         builder.Configuration.GetValue<string>("Storage:AccountKey"));
 
 var blobUri = "https://" + storageSharedKeyCredential.AccountName + ".blob.core.windows.net";
+
+builder.Configuration.AddAzureKeyVault(
+    new Uri($"https://irfestivalkeyvaultrh.vault.azure.net/"),
+    new DefaultAzureCredential(new DefaultAzureCredentialOptions()));
 
 builder.Services.AddSingleton(p => new BlobServiceClient(new Uri(blobUri), storageSharedKeyCredential));
 builder.Services.AddSingleton(p => storageSharedKeyCredential);
