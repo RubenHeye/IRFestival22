@@ -21,7 +21,7 @@ namespace IRFestival.Api.Controllers
         }
 
         [HttpGet]
-        //[ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(string[]))]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(string[]))]
         public async Task<ActionResult> GetAllPicturesUrls()
         {
             var container = BlobUtility.GetThumbsContainer();
