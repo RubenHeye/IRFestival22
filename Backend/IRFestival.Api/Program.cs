@@ -5,6 +5,7 @@ using IRFestival.Api.Common;
 using IRFestival.Api.Data;
 using IRFestival.Api.Options;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Web;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,6 +49,8 @@ builder.Services.AddDbContext<FestivalDbContext>(options =>
 });
 builder.Services.AddApplicationInsightsTelemetry(builder.Configuration["APPLICATIONINSIGHTS_CONNECTION_STRING"]);
 
+builder.Services.AddMicrosoftIdentityWebApiAuthentication(builder.Configuration, "AzureAd");
+
 var app = builder.Build();
 
 app.UseSwagger();
@@ -66,6 +69,7 @@ app.UseRouting();
 // THIS IS NOT A SECURE CORS POLICY, DO NOT USE IN PRODUCTION
 app.UseCors(policy => policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
