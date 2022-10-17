@@ -14,7 +14,7 @@ namespace IRFestival.Function
     {
         [FunctionName("ThumbnailFunction")]
         public void Run(
-            [BlobTrigger("festivalpics-approved/{name}", Connection = "StorageConnectionString")]Stream image, string name, ILogger log,
+            [BlobTrigger("festivalpics-uploaded/{name}", Connection = "StorageConnectionString")]Stream image, string name, ILogger log,
             [Blob("festivalthumbs/{name}", FileAccess.Write, Connection = "StorageConnectionString")] Stream thumbnail)
         {
             using Image<Rgba32> input = Image.Load<Rgba32>(image, out IImageFormat format);

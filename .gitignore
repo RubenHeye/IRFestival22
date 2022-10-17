@@ -354,3 +354,4 @@ dev_localhost.crt
 
 # Azure Functions localsettings file
 local.settings.json
+/Backend/IRFestival.MailerConsole
